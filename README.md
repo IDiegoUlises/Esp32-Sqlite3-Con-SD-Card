@@ -77,3 +77,5 @@ void loop() {
 ```
 
 Verficar si el modulo sd card consume 5v o 3.3v para conectar todos los pines a la parte izquierda, para modificar el esquema original
+
+EL MODULO SD FUNCIONA A 3.3V PERO SE LE PUEDE CONECTAR A 5V PORQUE TIENE UN REGULADOR DE VOLTAJE QUE LO TRANFORMA A 3.3V

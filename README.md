@@ -1,47 +1,40 @@
 # Esp32-Sqlite3-Con-SD-Card
 
-### Codigo de pruebas
+### Codigo Que funciona
 ```c++
-void setup() {
-  Serial.begin(115200);
-  delay(5000);
+#include <stdio.h>
+#include <stdlib.h>
+#include <sqlite3.h>
+#include <SPI.h>
+#include <FS.h>
+#include "SD.h"
 
-  sqlite3 *db1;
-  int rc;
-
-  SPI.begin();
-
-  sqlite3_initialize();
-
-  if (db_open("/SD/user.db", &db1))
-  {
-    Serial.println("Abierto no se que hace");
+const char* data = "Callback function called";
+static int callback(void *data, int argc, char **argv, char **azColName) {
+  int i;
+  Serial.printf("%s: ", (const char*)data);
+  for (i = 0; i < argc; i++) {
+    Serial.printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
   }
-
-
-  rc = db_exec(db1, "SELECT nombre FROM usuarios");
-
-  if (rc != SQLITE_OK)
-  {
-    sqlite3_close(db1);
-    Serial.println("sqlite ok salida");
-    return;
-  }
-
+  Serial.printf("\n");
+  return 0;
 }
 
-void loop() {
-
+int openDb(const char *filename, sqlite3 **db) {
+  int rc = sqlite3_open(filename, db);
+  if (rc) {
+    Serial.printf("Can't open database: %s\n", sqlite3_errmsg(*db));
+    return rc;
+  } else {
+    Serial.printf("Opened database successfully\n");
+  }
+  return rc;
 }
 
-```
-
-### Codigo 2 de pruebas
-
-```c++
+char *zErrMsg = 0;
 int db_exec(sqlite3 *db, const char *sql) {
   Serial.println(sql);
-  long start = millis();
+  long start = micros();
   int rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
   if (rc != SQLITE_OK) {
     Serial.printf("SQL error: %s\n", zErrMsg);
@@ -50,36 +43,36 @@ int db_exec(sqlite3 *db, const char *sql) {
     Serial.printf("Operation done successfully\n");
   }
   Serial.print(F("Time taken:"));
-  Serial.println(millis() - start);
+  Serial.println(micros() - start);
   return rc;
 }
 
 void setup() {
-  //codigo
   Serial.begin(115200);
   sqlite3 *db1;
+  sqlite3 *db2;
+  char *zErrMsg = 0;
   int rc;
-  SPI.begin();
-  sqlite3_initialize();
-  ///codigo
 
-  if (db_open("/sd/usuario.db", &db1))
-  {
+  SPI.begin();
+  SD.begin();
+
+  sqlite3_initialize();
+
+  // Open database 1
+  if (openDb("/sd/user.db", &db1))
+    return;
+
+  rc = db_exec(db1, "SELECT nombre FROM usuarios;");
+  if (rc != SQLITE_OK) {
+    sqlite3_close(db1);
     return;
   }
-
-  String s_Command = "SELECT nombre FROM usuarios;";
-  const char *c_Command = s_Command.c_str();
-
-  rc = db_exec(db1, c_Command);
-
-  Serial.println(rc);
 
   sqlite3_close(db1);
 
 }
 
 void loop() {
-
 }
 ```

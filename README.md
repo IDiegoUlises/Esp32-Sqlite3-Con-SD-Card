@@ -50,7 +50,6 @@ int db_exec(sqlite3 *db, const char *sql) {
 void setup() {
   Serial.begin(115200);
   sqlite3 *db1;
-  sqlite3 *db2;
   char *zErrMsg = 0;
   int rc;
 

@@ -60,6 +60,7 @@ void setup() {
   sqlite3 *db1;
   int rc;
   SPI.begin();
+  sqlite3_initialize();
   ///codigo
 
   if (db_open("/sd/usuario.db", &db1))

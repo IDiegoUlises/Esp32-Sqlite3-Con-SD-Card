@@ -77,4 +77,4 @@ void loop() {
 }
 ```
 
-Verficar si el modulo sd card consume 5v o 3.3v para conectar todos los pines a la parte izquierda
+Verficar si el modulo sd card consume 5v o 3.3v para conectar todos los pines a la parte izquierda, para modificar el esquema original

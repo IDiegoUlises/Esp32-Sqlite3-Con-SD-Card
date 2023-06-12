@@ -1,6 +1,6 @@
 # Esp32-Sqlite3-Con-SD-Card
 
-### Codigo Que funciona
+### Codigo Simplificado Que funciona
 ```c++
 #include <stdio.h>
 #include <stdlib.h>

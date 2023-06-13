@@ -2,6 +2,7 @@
 
 ### Crear Base de Datos
 <img src="https://github.com/IDiegoUlises/Esp32-Sqlite3-Con-SD-Card/blob/main/images/Base-de-datos.jpg" width="1000" height="500" />
+
 * Se debe crear una tabla
 * Se debe crear una columna nombre
 * Se debe crear otra columna con edad

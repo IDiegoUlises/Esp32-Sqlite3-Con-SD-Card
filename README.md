@@ -101,3 +101,6 @@ void loop()
   
 }
 ```
+
+### Debug
+<img src="https://github.com/IDiegoUlises/Esp32-Sqlite3-Con-SD-Card/blob/main/images/debug-puertoSerial-Sqlite3.jpg"  />

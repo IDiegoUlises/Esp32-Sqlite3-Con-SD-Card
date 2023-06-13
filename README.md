@@ -7,6 +7,9 @@
 * Se debe crear una columna nombre
 * Se debe crear otra columna con edad
 
+### Conexion
+<img src="https://github.com/IDiegoUlises/Esp32-Sqlite3-Con-SD-Card/blob/main/images/Esp32-Con-SD-Card-Imagen.jpg"  />
+
 ### Codigo Simplificado Que funciona
 ```c++
 #include <stdio.h>

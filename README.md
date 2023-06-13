@@ -1,5 +1,8 @@
 # Esp32-Sqlite3-Con-SD-Card
 
+### Crear base de datos
+<img src="https://github.com/IDiegoUlises/Esp32-Sqlite3-Con-SD-Card/blob/main/images/Base-de-datos.jpg" width="1000" height="500" />
+
 ### Codigo Simplificado Que funciona
 ```c++
 #include <stdio.h>

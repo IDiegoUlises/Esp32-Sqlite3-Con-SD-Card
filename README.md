@@ -10,8 +10,8 @@
 ### Conexion
 <img src="https://github.com/IDiegoUlises/Esp32-Sqlite3-Con-SD-Card/blob/main/images/MicroSD-Con-SDCARD.jpg"  />
 
-* El modulo incorpora un regulador para utilizar con 5v 
-* Se puede alimentar con 3.3V
+* El modulo incorpora un regulador para alimentar con 5v 
+* Se puede conectar con 3.3V
 
 ### Codigo Simplificado Que funciona
 ```c++
